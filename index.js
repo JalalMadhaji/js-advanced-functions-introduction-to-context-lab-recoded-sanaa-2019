@@ -71,7 +71,7 @@ function allWagesFor(record){
     sum.push(wagesEarnedOnDate(record,record.timeInEvents[i].date));
   }
   let final = sum.reduce((acc, cur) => acc + cur, 0);
-  return final * 27;
+  return final;
 }
 
 function calculatePayroll(empArr){
