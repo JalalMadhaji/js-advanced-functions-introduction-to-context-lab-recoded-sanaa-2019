@@ -62,13 +62,13 @@ function hoursWorkedOnDate(record,date){
 
 function wagesEarnedOnDate(record,date){
   let sum = hoursWorkedOnDate(record,date);
-  return sum * 27;
+  return sum * record.payPerHour;
 }
 
 function allWagesFor(record){
   let sum = [];
   for(let i = 0; i < record.timeInEvents.length; i++){
-    sum.push(hoursWorkedOnDate(record,record.timeInEvents[i].date));
+    sum.push(wagesEarnedOnDate(record,record.timeInEvents[i].date));
   }
   let final = sum.reduce((acc, cur) => acc + cur, 0);
   return final * 27;
